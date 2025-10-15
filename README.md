@@ -8,7 +8,7 @@
 [![MongoDB][MongoDB-badge]][MongoDB-url]
 [![License: MIT][License-badge]][License-url]
 
-[![View Demo](https://img.shields.io/badge/View_Demo-28a745?style=for-the-badge)](https://smart-task-planner-alpha.vercel.app/)
+[![Website Link](https://img.shields.io/badge/View_Demo-28a745?style=for-the-badge)](https://smart-task-planner-alpha.vercel.app/)
 
 </div>
 
@@ -179,3 +179,14 @@ smart-task-planner/
 ├── LICENSE               # Project's MIT license
 └── README.md             # You are here!
 ```
+
+[Python-badge]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org/
+[React-badge]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[FastAPI-badge]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
+[FastAPI-url]: https://fastapi.tiangolo.com/
+[MongoDB-badge]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
+[License-badge]: https://img.shields.io/github/license/kandarpchandra/smart-task-planner?style=for-the-badge
+[License-url]: https://github.com/kandarpchandra/smart-task-planner/blob/main/LICENSE
