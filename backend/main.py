@@ -23,10 +23,7 @@ app = FastAPI(title="Smart Task Planner")
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",  # Local development
-        "https://smart-task-planner-alpha.vercel.app/"   # Vercel preview deployments
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
