@@ -9,11 +9,11 @@
 
 [![Website Link](https://img.shields.io/badge/View_Demo-28a745?style=for-the-badge)](https://smart-task-planner-alpha.vercel.app/)
 
+<div align="center">
+  <p><i>
+    An intelligent task planning system that leverages Google's Gemini AI to break down high-level goals into a structured, actionable plan with dependencies and timelines.
+  </i></p>
 </div>
-
-> An intelligent task planning system that leverages Google's Gemini AI to break down high-level goals into a structured, actionable plan with dependencies and timelines.
-
-<br/>
 
 <div align="center">
   <img src="./demo/demo.gif" alt="Smart Task Planner Demo" width="800"/>
