@@ -15,11 +15,13 @@ function App() {
   }, []);
 
   const formatDuration = (duration) => {
-    if (typeof duration === 'object' && duration.value && duration.unit) {
+    // Check if duration exists and has the correct structure
+    if (duration && typeof duration === 'object' && duration.value && duration.unit) {
       return `${duration.value} ${duration.unit}`;
     }
-    // Fallback for old format
-    return `${duration} days`;
+    
+    // Fallback for any other case
+    return 'Not specified';
   };
 
   const fetchPlans = async () => {
