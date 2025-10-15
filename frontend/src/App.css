@@ -274,6 +274,15 @@ body {
   color: #666;
 }
 
+.task-meta span:first-child {
+  background: #e3f2fd;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1976d2;
+}
+
 .task-status {
   display: flex;
   align-items: center;

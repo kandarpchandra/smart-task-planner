@@ -38,32 +38,43 @@ async def create_plan(goal: str):
     """Generate a task plan and save it to MongoDB"""
     
     prompt = f"""
-    Break down this goal into actionable tasks with dependencies.
-    
-    Goal: {goal}
-    
-    Provide a JSON response with this structure:
-    {{
-        "tasks": [
-            {{
-                "id": 1,
-                "name": "task name",
-                "description": "detailed description of what to do",
-                "estimated_days": 2,
-                "priority": "High",
-                "dependencies": []
-            }}
-        ]
-    }}
-    
-    Rules:
-    - Create 5-8 tasks
-    - Dependencies should be task IDs that must be completed first (empty array if no dependencies)
-    - Priority can be: High, Medium, or Low
-    - Estimated days should be realistic
-    
-    Return ONLY the JSON, no other text.
-    """
+        Break down this goal into actionable tasks with dependencies.
+
+        Goal: {goal}
+
+        Provide a JSON response with this structure:
+        {{
+            "tasks": [
+                {{
+                    "id": 1,
+                    "name": "task name",
+                    "description": "detailed description of what to do",
+                    "estimated_duration": {{
+                        "value": 2,
+                        "unit": "days"
+                    }},
+                    "priority": "High",
+                    "dependencies": []
+                }}
+            ]
+        }}
+
+        Rules:
+        - Create 5-8 tasks
+        - Dependencies should be task IDs that must be completed first (empty array if no dependencies)
+        - Priority can be: High, Medium, or Low
+        - estimated_duration must have "value" (number) and "unit" (one of: minutes, hours, days, weeks, months)
+        - Choose appropriate time units based on task complexity:
+        * minutes: for very quick tasks (5-60 minutes)
+        * hours: for tasks taking part of a day (1-23 hours)
+        * days: for tasks taking full days (1-30 days)
+        * weeks: for longer tasks (1-12 weeks)
+        * months: for very long tasks (1-12 months)
+        - Use realistic estimates for each task
+
+        Return ONLY the JSON, no other text.
+        """
+
     
     # Generate plan with AI
     response = model.generate_content(
@@ -78,19 +89,21 @@ async def create_plan(goal: str):
     result = await plans_collection.insert_one(plan)
     plan_id = result.inserted_id
     
-    # Save tasks
+    # Save tasks with new duration format
     for task_data in plan_data["tasks"]:
         task = {
             "plan_id": plan_id,
             "task_number": task_data["id"],
             "name": task_data["name"],
             "description": task_data["description"],
-            "estimated_days": task_data["estimated_days"],
+            "estimated_duration": task_data["estimated_duration"],  # Now stores object
             "priority": task_data["priority"],
             "dependencies": task_data["dependencies"],
             "status": "pending"
         }
         await tasks_collection.insert_one(task)
+    
+    db.commit()
     
     return {
         "success": True,
@@ -131,7 +144,7 @@ async def get_plan(plan_id: str):
             "id": task["task_number"],
             "name": task["name"],
             "description": task["description"],
-            "estimated_days": task["estimated_days"],
+            "estimated_duration": task["estimated_duration"],  # Return as object
             "priority": task["priority"],
             "dependencies": task["dependencies"],
             "status": task.get("status", "pending")
@@ -148,6 +161,7 @@ async def get_plan(plan_id: str):
         "tasks": tasks,
         "progress": round(progress, 2)
     }
+
 
 @app.patch("/api/task/{plan_id}/{task_number}/status")
 async def update_task_status(plan_id: str, task_number: int, status: str):
@@ -232,11 +246,17 @@ async def export_plan_csv(plan_id: str):
     # Get all tasks
     tasks = []
     async for task in tasks_collection.find({"plan_id": ObjectId(plan_id)}):
+        duration = task["estimated_duration"]
+        if isinstance(duration, dict):
+            duration_str = f"{duration['value']} {duration['unit']}"
+        else:
+            duration_str = f"{duration} days"
+            
         tasks.append({
             "Task ID": task["task_number"],
             "Task Name": task["name"],
             "Description": task["description"],
-            "Estimated Days": task["estimated_days"],
+            "Estimated Duration": duration_str,
             "Priority": task["priority"],
             "Dependencies": ", ".join(map(str, task["dependencies"])) if task["dependencies"] else "None",
             "Status": task.get("status", "pending")
@@ -263,3 +283,4 @@ async def export_plan_csv(plan_id: str):
             "Content-Disposition": f"attachment; filename=task_plan_{plan_id}.csv"
         }
     )
+

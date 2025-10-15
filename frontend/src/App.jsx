@@ -14,6 +14,14 @@ function App() {
     fetchPlans();
   }, []);
 
+  const formatDuration = (duration) => {
+    if (typeof duration === 'object' && duration.value && duration.unit) {
+      return `${duration.value} ${duration.unit}`;
+    }
+    // Fallback for old format
+    return `${duration} days`;
+  };
+
   const fetchPlans = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/plans`);
@@ -154,7 +162,7 @@ function App() {
                   <p className="task-description">{task.description}</p>
                   
                   <div className="task-meta">
-                    <span>⏱️ {task.estimated_days} days</span>
+                    <span>⏱️ {formatDuration(task.estimated_duration)}</span>
                     {task.dependencies.length > 0 && (
                       <span>🔗 Depends on: {task.dependencies.join(', ')}</span>
                     )}

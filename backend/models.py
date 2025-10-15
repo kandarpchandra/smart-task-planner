@@ -34,3 +34,30 @@ def task_helper(task) -> dict:
         "dependencies": task["dependencies"],
         "status": task.get("status", "pending")
     }
+
+def duration_to_string(duration):
+    """Convert duration object to readable string"""
+    if isinstance(duration, dict):
+        value = duration.get("value", 0)
+        unit = duration.get("unit", "days")
+        return f"{value} {unit}"
+    # Fallback for old data format
+    return f"{duration} days"
+
+def duration_to_hours(duration):
+    """Convert any duration to hours for comparison"""
+    if isinstance(duration, dict):
+        value = duration.get("value", 0)
+        unit = duration.get("unit", "days")
+    else:
+        value = duration
+        unit = "days"
+    
+    conversion = {
+        "minutes": value / 60,
+        "hours": value,
+        "days": value * 24,
+        "weeks": value * 24 * 7,
+        "months": value * 24 * 30
+    }
+    return conversion.get(unit, value * 24)
