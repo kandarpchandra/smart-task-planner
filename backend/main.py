@@ -25,8 +25,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",  # Local development
-        "https://*.vercel.app",   # Vercel preview deployments
-        "https://your-app-name.vercel.app"  # Your production URL (update later)
+        "https://smart-task-planner-alpha.vercel.app/"   # Vercel preview deployments
     ],
     allow_credentials=True,
     allow_methods=["*"],
