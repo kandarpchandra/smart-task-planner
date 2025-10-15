@@ -23,9 +23,6 @@
   - [Frontend Setup](#frontend-setup)
 - [🔌 API Endpoints](#-api-endpoints)
 - [📂 Project Structure](#-project-structure)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
-- [📬 Contact](#-contact)
 
 ## 📖 About The Project
 
