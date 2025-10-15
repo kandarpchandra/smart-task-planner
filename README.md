@@ -31,7 +31,8 @@
 - [✨ Key Features](#-key-features)
 - [🤖 How It Works](#-how-it-works)
 - [🛠️ Tech Stack](#️-tech-stack)
-- [🚀 Getting Started](#-getting-started)
+- [🚀 Deployment](#-deployment)
+- [▶️ Getting Started](#-getting-started)
 - [🔌 API Endpoints](#-api-endpoints)
 - [📂 Project Structure](#-project-structure)
 
@@ -90,7 +91,18 @@ This project is built using a modern and scalable technology stack.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Deployment
+
+This project is fully deployed, with the frontend and backend hosted on separate, scalable platforms.
+
+| Service  | Platform                                                                                                                                      | Status                                                                                                                               |
+|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| **Frontend** | [**Vercel**](https://vercel.com/) <br/> The React application is deployed on Vercel, leveraging its global CDN for optimal performance.         | [![Deployed on Vercel](https://vercel.com/button)](https://smart-task-planner-alpha.vercel.app/)                                       |
+| **Backend** | [**Render**](https://render.com/) <br/> The FastAPI server is hosted on Render, running as a web service connected to MongoDB Atlas. | ![Render Status](https://img.shields.io/badge/Deployed_on-Render-46E3B7?style=for-the-badge&logo=render) |
+
+---
+
+## ▶️ Getting Started
 
 To get a local copy up and running, follow these simple steps.
 
