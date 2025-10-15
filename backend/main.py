@@ -103,8 +103,6 @@ async def create_plan(goal: str):
         }
         await tasks_collection.insert_one(task)
     
-    db.commit()
-    
     return {
         "success": True,
         "plan_id": str(plan_id),

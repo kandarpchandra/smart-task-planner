@@ -40,7 +40,7 @@ function App() {
       const response = await axios.post(`${API_URL}/api/plan?goal=${encodeURIComponent(goal)}`);
       alert('Plan created successfully!');
       setGoal('');
-      fetchPlans();
+      await fetchPlans();
       viewPlan(response.data.plan_id);
     } catch (error) {
       console.error('Error creating plan:', error);
