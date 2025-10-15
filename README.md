@@ -7,9 +7,10 @@
 [![FastAPI][FastAPI-badge]][FastAPI-url]
 [![MongoDB][MongoDB-badge]][MongoDB-url]
 
-<a href="https://smart-task-planner-alpha.vercel.app/">
-  <img src="https://img.shields.io/badge/Website_Link-007BFF?style=plastic" alt="Website Link" width="200">
+<a href="https://smart-task-planner-alpha.vercel.app/" target="_blank">
+  <img src="https://img.shields.io/badge/🌐 Visit_Smart_Task_Planner-%230072FF?style=for-the-badge&logo=vercel&logoColor=white" alt="Smart Task Planner">
 </a>
+
 </div>
 
 <div align="center">
