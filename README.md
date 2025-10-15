@@ -152,7 +152,7 @@ Here are the available API endpoints:
 
 ## 📂 Project Structure
 
-'''
+```
 smart-task-planner/
 ├── backend/
 │   ├── main.py           # FastAPI application logic
@@ -165,4 +165,5 @@ smart-task-planner/
 │   │   └── App.css       # Global styles
 │   └── package.json      # Node.js dependencies
 └── README.md
-'''
+
+```
