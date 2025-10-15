@@ -6,7 +6,6 @@
 [![React][React-badge]][React-url]
 [![FastAPI][FastAPI-badge]][FastAPI-url]
 [![MongoDB][MongoDB-badge]][MongoDB-url]
-[![License: MIT][License-badge]][License-url]
 
 [![Website Link](https://img.shields.io/badge/View_Demo-28a745?style=for-the-badge)](https://smart-task-planner-alpha.vercel.app/)
 
