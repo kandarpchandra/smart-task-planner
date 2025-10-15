@@ -8,7 +8,7 @@
 [![MongoDB][MongoDB-badge]][MongoDB-url]
 
 <a href="https://smart-task-planner-alpha.vercel.app/">
-  <img src="https://img.shields.io/badge/Website_Link-007BFF?style=for-the-badge" alt="Website Link" width="200">
+  <img src="https://img.shields.io/badge/Website_Link-007BFF?style=flat" alt="Website Link" width="200">
 </a>
 </div>
 
