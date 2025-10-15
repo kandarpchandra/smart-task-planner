@@ -7,7 +7,7 @@
 [![FastAPI][FastAPI-badge]][FastAPI-url]
 [![MongoDB][MongoDB-badge]][MongoDB-url]
 
-[![Website Link](https://img.shields.io/badge/View_Demo-28a745?style=for-the-badge)](https://smart-task-planner-alpha.vercel.app/)
+[![Website Link](https://img.shields.io/badge/Website_Link-28a745?style=for-the-badge)](https://smart-task-planner-alpha.vercel.app/)
 </div>
 
 <div align="center">
