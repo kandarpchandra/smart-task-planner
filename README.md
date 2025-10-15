@@ -147,6 +147,12 @@ Here are the available API endpoints:
 | `GET`   | `/api/plan/{id}/export/csv`                  | Export a plan as a CSV file.       |
 | `DELETE`| `/api/plan/{id}`                             | Delete a plan by its ID.           |
 
+
+---
+
+## 📂 Project Structure
+
+'''
 smart-task-planner/
 ├── backend/
 │   ├── main.py           # FastAPI application logic
@@ -159,8 +165,4 @@ smart-task-planner/
 │   │   └── App.css       # Global styles
 │   └── package.json      # Node.js dependencies
 └── README.md
-
-
----
-
-## 📂 Project Structure
+'''
